@@ -18,6 +18,7 @@ namespace MunicipalTrashProgram.Controllers
 
         public ManageController()
         {
+
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
