@@ -57,7 +57,43 @@ namespace MunicipalTrashProgram.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+    public class AddProfileViewModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        [DataType(DataType.Text)]
+        public string FirstName { get; set; }
 
+        [Required]
+        [Display(Name = "Last Name")]
+        [DataType(DataType.Text)]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "House Number")]
+        [DataType(DataType.Text)]
+        public string HouseNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Street")]
+        [DataType(DataType.Text)]
+        public string Street { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        [DataType(DataType.Text)]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        [DataType(DataType.Text)]
+        public string State { get; set; }
+
+        [Required]
+        [Display(Name = "Zip Code")]
+        [DataType(DataType.PostalCode)]
+        public string Zip { get; set; }
+    }
     public class AddPhoneNumberViewModel
     {
         [Required]
