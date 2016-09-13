@@ -17,8 +17,8 @@ namespace MunicipalTrashProgram.Controllers
         // GET: Person
         public ActionResult Index()
         {
-            var people = db.people.Include(p => p.Address).Include(p => p.UserInfo).Include(p => p.Worker);
-            return View(people.ToList());
+            var People = db.people.Include(p => p.Address).Include(p => p.UserInfo).Include(p => p.Worker);
+            return View(People.ToList());
             //List<Person> model = db.people.ToList();
             //return View(model);
             //return View(db.people.ToList());
