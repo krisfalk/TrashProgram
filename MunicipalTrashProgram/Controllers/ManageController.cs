@@ -101,14 +101,14 @@ namespace MunicipalTrashProgram.Controllers
         }
 
         //
-        // GET: /Manage/AddPhoneNumber
+        // GET: /Manage/AddProfile
         public ActionResult AddProfile()
         {
             return View();
         }
 
         //
-        // POST: /Manage/AddPhoneNumber
+        // POST: /Manage/AddProfile
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddProfile(AddProfileViewModel model)
