@@ -1,0 +1,26 @@
+﻿@model MunicipalTrashProgram.Models.Worker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Worker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingZipCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Worker_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

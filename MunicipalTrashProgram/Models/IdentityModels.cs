@@ -29,9 +29,9 @@ namespace MunicipalTrashProgram.Models
         {
             return new ApplicationDbContext();
         }
-        DbSet<Person> persons { get; set; }
-        DbSet<Worker> workers { get; set; }
-        DbSet<UserInfo> usersInfo { get; set; }
-        DbSet<Address> addresses { get; set; }
+        public DbSet<Person> people { get; set; }
+        public DbSet<Worker> workers { get; set; }
+        public DbSet<UserInfo> usersInfo { get; set; }
+        public DbSet<Address> addresses { get; set; }
     }
 }

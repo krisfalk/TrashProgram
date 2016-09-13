@@ -1,0 +1,74 @@
+﻿@model MunicipalTrashProgram.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserInfo.PickupDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserInfo.PickupDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Worker.Worker_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Worker.Worker_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Person_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
