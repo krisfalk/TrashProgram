@@ -102,11 +102,11 @@ namespace MunicipalTrashProgram.Controllers
 
         //
         // GET: /Manage/AddProfile
-        public ActionResult AddProfile()
-        {
-            return RedirectToAction("Index", "Addresses");
-            //return View();
-        }
+        //public ActionResult AddProfile()
+        //{
+        //    //return RedirectToAction("Index", "Addresses");
+        //    //return View();
+        //}
 
         //
         // POST: /Manage/AddProfile
