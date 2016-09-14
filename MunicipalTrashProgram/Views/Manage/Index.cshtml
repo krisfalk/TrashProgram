@@ -10,18 +10,18 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Phone Number:</dt>
+        <dt>Profile:</dt>
         <dd>
             @(Model.Profile ?? "None") [
             @if (Model.Profile != null)
             {
-                @Html.ActionLink("Change", "AddPhoneNumber")
+                @Html.ActionLink("Change", "AddProfile")
                 @: &nbsp;|&nbsp;
                 @Html.ActionLink("Remove", "RemovePhoneNumber")
             }
             else
             {
-                @Html.ActionLink("Add", "AddPhoneNumber")
+                @Html.ActionLink("Add", "AddProfile")
             }
             ]
         </dd>
