@@ -11,6 +11,9 @@ namespace MunicipalTrashProgram
         {
 
         }
-        
+        public double ComputeBill(int numberOfBills, double weeklyCost)
+        {
+            return numberOfBills * weeklyCost;
+        }
     }
 }
