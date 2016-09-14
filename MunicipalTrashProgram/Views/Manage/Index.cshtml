@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         @(Model.Profile ?? "None") [
-        @if (Model.currentUser.address.Address_id >= 1)
+        @if (Model.currentUser.address.Address_id != null)
         {//user here
         <dt>Your Address:</dt>
         <dd>
