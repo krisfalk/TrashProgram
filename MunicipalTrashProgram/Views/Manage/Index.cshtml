@@ -24,146 +24,148 @@
             ]
         </dd>
         @*<table class="table">
-            @foreach (var item in Model.db.addresses)
+                @foreach (var item in Model.db.addresses)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HouseNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Address_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Address_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Address_id })
+                    </td>
+                </tr>
+                }
+            </table>*@
+        <dt>Your Pickup Day:</dt>
+        <dd>
+            @Html.DisplayFor(modelItem => Model.currentUser.userInfo.PickupDay)
+</dd>
+<dt>Change Pickup Day:</dt>
+<dd>
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "Monday",
+            Value = "Monday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Tuesday",
+            Value = "Tuesday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Wednesday",
+            Value = "Wednesday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Thursday",
+            Value = "Thursday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Friday",
+            Value = "Friday"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Saturday",
+            Value = "Saturday"
+        });
+    }
+    @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })
+
+</dd>
+
+
+<dt>Password:</dt>
+<dd>
+    [
+    @if (Model.HasPassword)
+    {
+        @Html.ActionLink("Change your password", "ChangePassword")
+    }
+    else
+    {
+        @Html.ActionLink("Create", "SetPassword")
+    }
+    ]
+</dd>
+@*<dt>External Logins:</dt>
+    <dd>
+        @Model.Logins.Count [
+        @Html.ActionLink("Manage", "ManageLogins") ]
+    </dd>*@
+@*
+    Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+     See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+     Uncomment the following block after you have set up two-factor authentication
+*@
+@*
+    <dt>Phone Number:</dt>
+    <dd>
+        @(Model.PhoneNumber ?? "None") [
+        @if (Model.PhoneNumber != null)
+        {
+            @Html.ActionLink("Change", "AddPhoneNumber")
+            @: &nbsp;|&nbsp;
+            @Html.ActionLink("Remove", "RemovePhoneNumber")
+        }
+        else
+        {
+            @Html.ActionLink("Add", "AddPhoneNumber")
+        }
+        ]
+    </dd>
+*@
+@*<dt>Two-Factor Authentication:</dt>
+    <dd>
+        <p>
+            There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+            for details on setting up this ASP.NET application to support two-factor authentication.
+        </p>*@
+@*@if (Model.TwoFactor)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HouseNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Street)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ZipCode)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Address_id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Address_id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Address_id })
-                </td>
-            </tr>
+                using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <text>Enabled
+                    <input type="submit" value="Disable" class="btn btn-link" />
+                    </text>
+                }
             }
-        </table>*@
-<<<<<<< HEAD
-            <dt>Pick up Day:</dt>
-            <dd>
-                @{
-                    List<SelectListItem> listItems = new List<SelectListItem>();
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Monday",
-                        Value = "Monday"
-                    });
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Tuesday",
-                        Value = "Tuesday",
-                        Selected = true
-                    });
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Wednesday",
-                        Value = "Wednesday"
-                    });
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Thursday",
-                        Value = "Thursday"
-                    });
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Friday",
-                        Value = "Friday"
-                    });
-                    listItems.Add(new SelectListItem
-                    {
-                        Text = "Saturday",
-                        Value = "Saturday"
-                    });
-                }
-                @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })
-=======
->>>>>>> a8c1f1483799783b98ee812091bfa786faeee83f
-
-            </dd>
-
-
-            <dt>Password:</dt>
-            <dd>
-                [
-                @if (Model.HasPassword)
+            else
+            {
+                using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
-                    @Html.ActionLink("Change your password", "ChangePassword")
+                    @Html.AntiForgeryToken()
+                    <text>Disabled
+                    <input type="submit" value="Enable" class="btn btn-link" />
+                    </text>
                 }
-                else
-                {
-                    @Html.ActionLink("Create", "SetPassword")
-                }
-                ]
-            </dd>
-            @*<dt>External Logins:</dt>
-            <dd>
-                @Model.Logins.Count [
-                @Html.ActionLink("Manage", "ManageLogins") ]
-            </dd>*@
-            @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+            }
+    </dd>*@
+</dl>
 
-             See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-             Uncomment the following block after you have set up two-factor authentication
-            *@
-            @*
-            <dt>Phone Number:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None") [
-                @if (Model.PhoneNumber != null)
-                {
-                    @Html.ActionLink("Change", "AddPhoneNumber")
-                    @: &nbsp;|&nbsp;
-                    @Html.ActionLink("Remove", "RemovePhoneNumber")
-                }
-                else
-                {
-                    @Html.ActionLink("Add", "AddPhoneNumber")
-                }
-                ]
-            </dd>
-            *@
-            @*<dt>Two-Factor Authentication:</dt>
-            <dd>
-                <p>
-                    There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                    for details on setting up this ASP.NET application to support two-factor authentication.
-                </p>*@
-            @*@if (Model.TwoFactor)
-                    {
-                        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Enabled
-                            <input type="submit" value="Disable" class="btn btn-link" />
-                            </text>
-                        }
-                    }
-                    else
-                    {
-                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Disabled
-                            <input type="submit" value="Enable" class="btn btn-link" />
-                            </text>
-                        }
-                    }
-            </dd>*@
-        </dl>
 
 </div>
