@@ -12,7 +12,7 @@ namespace MunicipalTrashProgram.Models
         {
         }
         [Key]
-        public int? Address_id { get; set; }
+        public string Address_id { get; set; }
         public int HouseNumber { get; set; }
         public string Street { get; set; }
         public string City { get; set; }

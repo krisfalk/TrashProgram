@@ -168,6 +168,7 @@ namespace MunicipalTrashProgram.Controllers
                     }
                     else
                     {
+                        user.address.Address_id = user.Id;
                         return RedirectToAction("Create", "Addresses");
                     }
                 }
