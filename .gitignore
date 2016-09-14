@@ -1,2 +1,4 @@
 # Error
 *.suo
+*.mdf
+*.ldf
