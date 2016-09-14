@@ -19,5 +19,7 @@ namespace MunicipalTrashProgram.Models
         //public int Person_id { get; set; }
         //public Person person { get; set; }
         public int WorkingZipCode { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }

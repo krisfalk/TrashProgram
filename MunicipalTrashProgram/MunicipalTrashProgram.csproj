@@ -225,6 +225,14 @@
     <Compile Include="Migrations\201609131558015_save2.Designer.cs">
       <DependentUpon>201609131558015_save2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609141328549_add columns to aspnetusers.cs" />
+    <Compile Include="Migrations\201609141328549_add columns to aspnetusers.Designer.cs">
+      <DependentUpon>201609141328549_add columns to aspnetusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609141352066_update databases to reference each other.cs" />
+    <Compile Include="Migrations\201609141352066_update databases to reference each other.Designer.cs">
+      <DependentUpon>201609141352066_update databases to reference each other.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -343,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609131558015_save2.resx">
       <DependentUpon>201609131558015_save2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141328549_add columns to aspnetusers.resx">
+      <DependentUpon>201609141328549_add columns to aspnetusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141352066_update databases to reference each other.resx">
+      <DependentUpon>201609141352066_update databases to reference each other.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

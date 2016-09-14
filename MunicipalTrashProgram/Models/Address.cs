@@ -18,5 +18,7 @@ namespace MunicipalTrashProgram.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }

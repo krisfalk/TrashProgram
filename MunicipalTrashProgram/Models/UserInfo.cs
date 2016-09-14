@@ -19,5 +19,6 @@ namespace MunicipalTrashProgram.Models
         public double YearlyBill { get; set; }
         public double TotalBill { get; set; }
 
+        public virtual ApplicationUser User { get; set; }
     }
 }
