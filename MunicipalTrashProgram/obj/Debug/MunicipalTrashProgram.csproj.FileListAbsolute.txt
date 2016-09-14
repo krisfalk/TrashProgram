@@ -347,3 +347,5 @@ C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.pdb
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addcolumnstoaspnetusers.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.updatedatabasestoreferenceeachother.resources
+C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addcolumnstoaspnetusers.resources
+C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.updatedatabasestoreferenceeachother.resources
