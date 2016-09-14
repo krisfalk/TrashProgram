@@ -202,36 +202,13 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\UserInfoesController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
+    <Compile Include="DoWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609122022094_initial upload.cs" />
-    <Compile Include="Migrations\201609122022094_initial upload.Designer.cs">
-      <DependentUpon>201609122022094_initial upload.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609122110465_initial databases.cs" />
-    <Compile Include="Migrations\201609122110465_initial databases.Designer.cs">
-      <DependentUpon>201609122110465_initial databases.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609131328018_save.cs" />
-    <Compile Include="Migrations\201609131328018_save.Designer.cs">
-      <DependentUpon>201609131328018_save.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609131522192_save1.cs" />
-    <Compile Include="Migrations\201609131522192_save1.Designer.cs">
-      <DependentUpon>201609131522192_save1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609131558015_save2.cs" />
-    <Compile Include="Migrations\201609131558015_save2.Designer.cs">
-      <DependentUpon>201609131558015_save2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609141328549_add columns to aspnetusers.cs" />
-    <Compile Include="Migrations\201609141328549_add columns to aspnetusers.Designer.cs">
-      <DependentUpon>201609141328549_add columns to aspnetusers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609141352066_update databases to reference each other.cs" />
-    <Compile Include="Migrations\201609141352066_update databases to reference each other.Designer.cs">
-      <DependentUpon>201609141352066_update databases to reference each other.cs</DependentUpon>
+    <Compile Include="Migrations\201609141559595_init.cs" />
+    <Compile Include="Migrations\201609141559595_init.Designer.cs">
+      <DependentUpon>201609141559595_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -337,26 +314,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609122022094_initial upload.resx">
-      <DependentUpon>201609122022094_initial upload.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609122110465_initial databases.resx">
-      <DependentUpon>201609122110465_initial databases.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609131328018_save.resx">
-      <DependentUpon>201609131328018_save.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609131522192_save1.resx">
-      <DependentUpon>201609131522192_save1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609131558015_save2.resx">
-      <DependentUpon>201609131558015_save2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609141328549_add columns to aspnetusers.resx">
-      <DependentUpon>201609141328549_add columns to aspnetusers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609141352066_update databases to reference each other.resx">
-      <DependentUpon>201609141352066_update databases to reference each other.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609141559595_init.resx">
+      <DependentUpon>201609141559595_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

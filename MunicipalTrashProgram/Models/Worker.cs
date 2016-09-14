@@ -9,14 +9,13 @@ namespace MunicipalTrashProgram.Models
 {
     public class Worker
     {
-        public Worker(ApplicationUser User)
+        public Worker()
         {
-            this.User = User;
         }
         [Key]
-        public int Worker_id { get; set; }
+        public int? Worker_id { get; set; }
         public int WorkingZipCode { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        //public virtual ApplicationUser User { get; set; }
     }
 }

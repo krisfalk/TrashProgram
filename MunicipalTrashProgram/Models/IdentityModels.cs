@@ -10,13 +10,16 @@ namespace MunicipalTrashProgram.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public ICollection<Address> address { get; set; }
-        public ICollection<UserInfo> userInfo { get; set; }
-        public ICollection<Worker> worker { get; set; }
+        //public ICollection<Address> address { get; set; }
+        //public ICollection<UserInfo> userInfo { get; set; }
+        //public ICollection<Worker> worker { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        //public virtual Address addresses { get; set; }
+        public Address address { get; set; }
+        public UserInfo userInfo { get; set; }
+        public Worker worker { get; set; }
+
 
 
 

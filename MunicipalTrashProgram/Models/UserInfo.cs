@@ -13,12 +13,12 @@ namespace MunicipalTrashProgram.Models
 
         }
         [Key]
-        public int UserInfo_id { get; set; }
+        public int? UserInfo_id { get; set; }
         public string PickupDay { get; set; }
         public double MonthlyBill { get; set; }
         public double YearlyBill { get; set; }
         public double TotalBill { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        //public virtual ApplicationUser User { get; set; }
     }
 }

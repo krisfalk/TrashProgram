@@ -157,20 +157,21 @@ namespace MunicipalTrashProgram.Controllers
                 var user = new ApplicationUser { UserName = (model.FirstName + " " + model.LastName), Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                if (!model.EmployeeCode)
+                if (model.EmployeeCode != null)
                 {
-                    if(employeeCode == "0000")
+                    if(model.EmployeeCode == employeeCode)
                     {
-
-                        //Interaction.InputBox("Question?", "Title", "Default Text");
-
-                        db.workers.Add(new Worker(user));
-                        user.address
-                        
-
-
-
+                        //WorkersController wc = new WorkersController();
+                        //var worker = wc.Create(user.worker);
+                        //return RedirectToAction(wc.Create(user.worker))
+                        user.worker.Worker_id = user.worker.Worker_id + 1;
+                        return RedirectToAction("Create", "Workers");
                     }
+                }
+                else
+                {
+                    user.userInfo.UserInfo_id = user.userInfo.UserInfo_id + 1;
+                    return RedirectToAction("Create", "Addresses");
                 }
 
                 if (result.Succeeded)
@@ -442,6 +443,16 @@ namespace MunicipalTrashProgram.Controllers
 
             base.Dispose(disposing);
         }
+        //private bool CheckIfSucceed(Task<IdentityResult> Result)
+        //{
+        //    var result = Result
+        //    if (result.Succeeded)
+        //    {
+        //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //}
 
         #region Helpers
         // Used for XSRF protection when adding external logins
