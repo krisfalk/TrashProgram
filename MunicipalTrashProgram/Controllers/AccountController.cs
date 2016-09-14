@@ -157,7 +157,7 @@ namespace MunicipalTrashProgram.Controllers
                 var user = new ApplicationUser { UserName = (model.FirstName + " " + model.LastName), Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
-                if (!model.EmployeeCode)
+                if (model.EmployeeCode != null)
                 {
                     if(employeeCode == "0000")
                     {
@@ -165,7 +165,7 @@ namespace MunicipalTrashProgram.Controllers
                         //Interaction.InputBox("Question?", "Title", "Default Text");
 
                         db.workers.Add(new Worker(user));
-                        user.address
+                        //user.address
                         
 
 
