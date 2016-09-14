@@ -89,6 +89,10 @@ namespace MunicipalTrashProgram.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        
+        [Display(Name ="Employee Code", Prompt ="Enter Employee Code if Applicable")]
+        [DataType(DataType.Text)]
+        public string EmployeeCode { get; set; }
     }
 
     public class ResetPasswordViewModel
