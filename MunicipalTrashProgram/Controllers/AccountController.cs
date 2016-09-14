@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MunicipalTrashProgram.Models;
+using Microsoft.VisualBasic;
 
 namespace MunicipalTrashProgram.Controllers
 {
@@ -17,6 +18,8 @@ namespace MunicipalTrashProgram.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private string employeeCode = "0000";
 
         public AccountController()
         {
@@ -151,8 +154,25 @@ namespace MunicipalTrashProgram.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = (model.FirstName + " " + model.LastName), Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                if (!model.EmployeeCode)
+                {
+                    if(employeeCode == "0000")
+                    {
+
+                        //Interaction.InputBox("Question?", "Title", "Default Text");
+
+                        db.workers.Add(new Worker(user));
+                        user.address
+                        
+
+
+
+                    }
+                }
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -434,6 +454,8 @@ namespace MunicipalTrashProgram.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
+
+        public object Interaction { get; private set; }
 
         private void AddErrors(IdentityResult result)
         {

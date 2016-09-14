@@ -101,27 +101,27 @@ namespace MunicipalTrashProgram.Controllers
         }
 
         //
-        // GET: /Manage/AddProfile
-        public ActionResult AddProfile()
-        {
-            return View();
-        }
+        //// GET: /Manage/AddProfile
+        //public ActionResult AddProfile()
+        //{
+        //    return View();
+        //}
 
-        //
-        // POST: /Manage/AddProfile
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddProfile(AddProfileViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-            // Generate the token and send it
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.HouseNumber); // Change this code
-            return RedirectToAction("Index", "Manage");
-        }
-        //
+        ////
+        //// POST: /Manage/AddProfile
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> AddProfile(AddProfileViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+        //    // Generate the token and send it
+        //    var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.HouseNumber); // Change this code
+        //    return RedirectToAction("Index", "Manage");
+        //}
+        ////
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {

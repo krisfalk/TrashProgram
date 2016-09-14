@@ -10,7 +10,7 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Profile:</dt>
+        @*<dt>Profile:</dt>
         <dd>
             @(Model.Profile ?? "None") [
             @if (Model.Profile != null)
@@ -24,7 +24,7 @@
                 @Html.ActionLink("Add", "AddProfile")
             }
             ]
-        </dd>
+        </dd>*@
 
         <dt>Password:</dt>
         <dd>
