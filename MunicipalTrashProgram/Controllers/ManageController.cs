@@ -101,14 +101,15 @@ namespace MunicipalTrashProgram.Controllers
         }
 
         //
-        //// GET: /Manage/AddProfile
-        //public ActionResult AddProfile()
-        //{
-        //    return View();
-        //}
+        // GET: /Manage/AddProfile
+        public ActionResult AddProfile()
+        {
+            return RedirectToAction("Index", "Addresses");
+            //return View();
+        }
 
-        ////
-        //// POST: /Manage/AddProfile
+        //
+        // POST: /Manage/AddProfile
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<ActionResult> AddProfile(AddProfileViewModel model)
@@ -118,10 +119,10 @@ namespace MunicipalTrashProgram.Controllers
         //        return View(model);
         //    }
         //    // Generate the token and send it
-        //    var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.HouseNumber); // Change this code
-        //    return RedirectToAction("Index", "Manage");
+        //    //var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.HouseNumber); // Change this code
+        //    return RedirectToAction("Index", "Addresses", "Index");
         //}
-        ////
+        //
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {
