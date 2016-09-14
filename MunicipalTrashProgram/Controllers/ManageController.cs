@@ -108,25 +108,40 @@ namespace MunicipalTrashProgram.Controllers
 
         //
         // GET: /Manage/PickUpDay
-        public ActionResult PickUpDay()
+        public ActionResult PickUpDay(int? value)
         {
             //return RedirectToAction("Index", "Addresses");
-            return View();
+            List<SelectListItem> item = new List<SelectListItem>();
+            SelectListItem day1 = new SelectListItem() { Text = "Monday", Value = "1" };
+            SelectListItem day2 = new SelectListItem() { Text = "Tuesday", Value = "2" };
+            SelectListItem day3 = new SelectListItem() { Text = "Wednesday", Value = "3" };
+            SelectListItem day4 = new SelectListItem() { Text = "Thursday", Value = "4" };
+            SelectListItem day5 = new SelectListItem() { Text = "Friday", Value = "5" };
+            SelectListItem day6 = new SelectListItem() { Text = "Saturday", Value = "6" };
+
+            item.Add(day1);
+            item.Add(day2);
+            item.Add(day3);
+            item.Add(day4);
+            item.Add(day5);
+            item.Add(day6);
+
+            if(value != null)
+            {
+                item.Where(i => i.Value == value.ToString()).First().Selected = true;
+            }
+            
+            ViewBag.PickaDay = item;
+            return View(item);
         }
 
         //
         // POST: /Manage/AddProfile
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> AddProfile(AddProfileViewModel model)
+        //public async Task<ActionResult> PickUpDay(int? value)
         //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    // Generate the token and send it
-        //    //var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.HouseNumber); // Change this code
-        //    return RedirectToAction("Index", "Addresses", "Index");
+        //    return View();
         //}
         //
         // GET: /Manage/AddPhoneNumber

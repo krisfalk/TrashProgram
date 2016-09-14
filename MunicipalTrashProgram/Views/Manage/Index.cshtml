@@ -56,7 +56,7 @@
 </dd>
 <dt>Change Pickup Day:</dt>
 <dd>
-    @{
+    @*@{
         List<SelectListItem> listItems = new List<SelectListItem>();
         listItems.Add(new SelectListItem
         {
@@ -88,8 +88,8 @@
             Text = "Saturday",
             Value = "Saturday"
         });
-    }
-    @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })
+    }*@
+    @Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*@
 
 </dd>
 
