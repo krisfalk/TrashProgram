@@ -52,7 +52,7 @@ namespace MunicipalTrashProgram.Controllers
             {
                 db.addresses.Add(address);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(address);

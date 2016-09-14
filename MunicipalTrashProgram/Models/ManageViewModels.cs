@@ -7,6 +7,7 @@ namespace MunicipalTrashProgram.Models
 {
     public class IndexViewModel
     {
+        public ApplicationDbContext db = new ApplicationDbContext();
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
@@ -58,7 +59,7 @@ namespace MunicipalTrashProgram.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-    public class AddProfileViewModel
+    public class ProfileViewModel
     {
         [Required]
         [Display(Name = "First Name")]
