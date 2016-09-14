@@ -14,6 +14,7 @@ namespace MunicipalTrashProgram.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
         public string Profile { get; set; }
+        public List<string> PickUpDate { get; }
     }
 
     public class ManageLoginsViewModel

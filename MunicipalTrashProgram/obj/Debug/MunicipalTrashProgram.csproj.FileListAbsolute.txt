@@ -331,15 +331,9 @@ C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Micro
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csprojResolveAssemblyReference.cache
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initialupload.resources
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initialdatabases.resources
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.save.resources
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.save1.resources
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.save2.resources
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.dll
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.pdb
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addcolumnstoaspnetusers.resources
-C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.updatedatabasestoreferenceeachother.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.init.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
+C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.init.resources

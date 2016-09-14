@@ -101,12 +101,12 @@ namespace MunicipalTrashProgram.Controllers
         }
 
         //
-        // GET: /Manage/AddProfile
-        //public ActionResult AddProfile()
-        //{
-        //    //return RedirectToAction("Index", "Addresses");
-        //    //return View();
-        //}
+        // GET: /Manage/PickUpDay
+        public ActionResult PickUpDay()
+        {
+            //return RedirectToAction("Index", "Addresses");
+            return View();
+        }
 
         //
         // POST: /Manage/AddProfile
