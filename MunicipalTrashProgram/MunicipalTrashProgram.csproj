@@ -205,21 +205,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609141559595_init.cs" />
-    <Compile Include="Migrations\201609141559595_init.Designer.cs">
-      <DependentUpon>201609141559595_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151240252_save.cs" />
-    <Compile Include="Migrations\201609151240252_save.Designer.cs">
-      <DependentUpon>201609151240252_save.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151501012_address nullable.cs" />
-    <Compile Include="Migrations\201609151501012_address nullable.Designer.cs">
-      <DependentUpon>201609151501012_address nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151501504_changed address nullable.cs" />
-    <Compile Include="Migrations\201609151501504_changed address nullable.Designer.cs">
-      <DependentUpon>201609151501504_changed address nullable.cs</DependentUpon>
+    <Compile Include="Migrations\201609151916073_recreated db.cs" />
+    <Compile Include="Migrations\201609151916073_recreated db.Designer.cs">
+      <DependentUpon>201609151916073_recreated db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -319,17 +307,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609141559595_init.resx">
-      <DependentUpon>201609141559595_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151240252_save.resx">
-      <DependentUpon>201609151240252_save.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151501012_address nullable.resx">
-      <DependentUpon>201609151501012_address nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151501504_changed address nullable.resx">
-      <DependentUpon>201609151501504_changed address nullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609151916073_recreated db.resx">
+      <DependentUpon>201609151916073_recreated db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

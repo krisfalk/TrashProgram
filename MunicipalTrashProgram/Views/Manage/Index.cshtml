@@ -10,30 +10,30 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        @(Model.Profile ?? "None") [
-        @if (Model.currentUser.address.Address_id != null)
+       @(Model.Profile ?? "None") [
+        @if (Model.currentUser.Address != null)
         {//user here
         <dt>Your Address:</dt>
         <dd>
             <tr>
                 <td>
-                    @Model.currentUser.address.HouseNumber;
-                </td>
-                @*<td>
-                    @Model.currentUser.address.Street;
+                    @Model.currentUser.Address.HouseNumber;
                 </td>
                 <td>
-                    @Model.currentUser.address.City;
+                    @Model.currentUser.Address.Street;
                 </td>
                 <td>
-                    @Model.currentUser.address.State;
+                    @Model.currentUser.Address.City;
                 </td>
                 <td>
-                    @Model.currentUser.address.ZipCode;
+                    @Model.currentUser.Address.State;
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.address.Address_id }) 
-                </td>*@
+                    @Model.currentUser.Address.ZipCode;
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Address.Address_id }) 
+                </td>
             </tr>
             </dd>
         }else{
@@ -41,10 +41,15 @@
         <dd>
             <tr>
                 <td>
-                    @Model.currentUser.worker.WorkingZipCode;
+                    @if (Model.currentUser.worker != null)
+                    {
+                        @Model.currentUser.worker.WorkingZipCode;
+                    }
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.worker.Worker_id }) |
+@if (Model.currentUser.worker != null)
+{
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.worker.Worker_id }) }
                 </td>
             </tr>
         </dd>
@@ -116,7 +121,7 @@
             Value = "Saturday"
         });
     }*@
-    @Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*@
+    @*@Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*@*
 
 </dd>
 

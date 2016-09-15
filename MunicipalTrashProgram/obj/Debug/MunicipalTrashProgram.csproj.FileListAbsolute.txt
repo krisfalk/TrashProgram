@@ -248,7 +248,6 @@ C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Micro
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csprojResolveAssemblyReference.cache
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.dll
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.pdb
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\ApplicationInsights.config
@@ -334,8 +333,6 @@ C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.dll
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.pdb
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.init.resources
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.init.resources
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\bin\ApplicationInsights.config
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\bin\roslyn\csc.exe
@@ -424,3 +421,6 @@ C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.save.resources
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addressnullable.resources
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.changedaddressnullable.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csprojResolveAssemblyReference.cache
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.recreateddb.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MunicipalTrashProgram.Models
 {
@@ -15,11 +16,11 @@ namespace MunicipalTrashProgram.Models
         //public ICollection<Worker> worker { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public Address address { get; set; }
         public UserInfo userInfo { get; set; }
         public Worker worker { get; set; }
-
+        //[ForeignKey("Address")]
+        //public int? Address_id { get; set; }
+        public virtual Address Address { get; set; }
 
 
 

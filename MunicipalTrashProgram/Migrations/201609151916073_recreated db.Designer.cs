@@ -7,13 +7,13 @@ namespace MunicipalTrashProgram.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class recreateddb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(recreateddb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609141559595_init"; }
+            get { return "201609151916073_recreated db"; }
         }
         
         string IMigrationMetadata.Source

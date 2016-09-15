@@ -170,7 +170,7 @@ namespace MunicipalTrashProgram.Controllers
                     {
                         //int x = 0;
                         //Int32.TryParse(user.address.Address_id, out x);
-                        //user.address.Address_id = user.Id;
+                        //user.Address.Address_id = user.Id;
                         return RedirectToAction("Create", "Addresses");
                     }
                 }

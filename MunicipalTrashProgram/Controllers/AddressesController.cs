@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MunicipalTrashProgram.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace MunicipalTrashProgram.Controllers
 {
@@ -48,12 +50,20 @@ namespace MunicipalTrashProgram.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "HouseNumber,Street,City,State,ZipCode")] Address address, ApplicationUser user)
         {
+            ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
             if (ModelState.IsValid)
             {
-                //DbSet<Address> addresss = db.addresses;
-                user.address.Address_id = address.Address_id;
+                ////DbSet<Address> addresss = db.addresses;
                 db.addresses.Add(address);
-                db.SaveChanges();                
+                ////user.address.Address_id = address.Address_id;
+                db.SaveChanges();
+                //myUser.Address = address;
+                //db.SaveChanges();
+                myUser.Address = address;//.Add(address);
+                db.SaveChanges();
+                myUser.Address.Address_id = address.Address_id;
+                db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
 
