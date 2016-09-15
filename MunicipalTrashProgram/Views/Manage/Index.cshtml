@@ -19,7 +19,7 @@
                 <td>
                     @Model.currentUser.address.HouseNumber;
                 </td>
-                <td>
+                @*<td>
                     @Model.currentUser.address.Street;
                 </td>
                 <td>
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.address.Address_id }) 
-                </td>
+                </td>*@
             </tr>
             </dd>
         }else{

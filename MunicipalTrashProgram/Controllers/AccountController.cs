@@ -168,7 +168,9 @@ namespace MunicipalTrashProgram.Controllers
                     }
                     else
                     {
-                        user.address.Address_id = user.Id;
+                        //int x = 0;
+                        //Int32.TryParse(user.address.Address_id, out x);
+                        //user.address.Address_id = user.Id;
                         return RedirectToAction("Create", "Addresses");
                     }
                 }

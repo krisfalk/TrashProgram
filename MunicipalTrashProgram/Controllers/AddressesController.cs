@@ -46,12 +46,14 @@ namespace MunicipalTrashProgram.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Address_id,HouseNumber,Street,City,State,ZipCode")] Address address)
+        public ActionResult Create([Bind(Include = "HouseNumber,Street,City,State,ZipCode")] Address address, ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
+                //DbSet<Address> addresss = db.addresses;
+                user.address.Address_id = address.Address_id;
                 db.addresses.Add(address);
-                db.SaveChanges();
+                db.SaveChanges();                
                 return RedirectToAction("Index", "Home");
             }
 

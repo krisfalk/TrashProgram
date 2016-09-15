@@ -43,7 +43,7 @@ namespace MunicipalTrashProgram.Models
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Person> people { get; set; }
+       // public DbSet<Person> people { get; set; }
         public DbSet<Worker> workers { get; set; }
         public DbSet<UserInfo> usersInfo { get; set; }
         public DbSet<Address> addresses { get; set; }
