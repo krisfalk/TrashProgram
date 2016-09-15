@@ -11,10 +11,11 @@ namespace MunicipalTrashProgram.Models
     {
         public Address()
         {
+
         }
-        [Key, ForeignKey("ApplicationUser")]
-        public string Address_id { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Key]
+        public int? Address_id { get; set; }
+        //public virtual ApplicationUser ApplicationUser { get; set; }
         public int HouseNumber { get; set; }
         public string Street { get; set; }
         public string City { get; set; }

@@ -205,9 +205,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609151916073_recreated db.cs" />
-    <Compile Include="Migrations\201609151916073_recreated db.Designer.cs">
-      <DependentUpon>201609151916073_recreated db.cs</DependentUpon>
+    <Compile Include="Migrations\201609151945413_initial.cs" />
+    <Compile Include="Migrations\201609151945413_initial.Designer.cs">
+      <DependentUpon>201609151945413_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151957050_users table fk added.cs" />
+    <Compile Include="Migrations\201609151957050_users table fk added.Designer.cs">
+      <DependentUpon>201609151957050_users table fk added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609152254150_modify fk on users.cs" />
+    <Compile Include="Migrations\201609152254150_modify fk on users.Designer.cs">
+      <DependentUpon>201609152254150_modify fk on users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609152259273_added fk back in.cs" />
+    <Compile Include="Migrations\201609152259273_added fk back in.Designer.cs">
+      <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,8 +319,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609151916073_recreated db.resx">
-      <DependentUpon>201609151916073_recreated db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609151945413_initial.resx">
+      <DependentUpon>201609151945413_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151957050_users table fk added.resx">
+      <DependentUpon>201609151957050_users table fk added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609152254150_modify fk on users.resx">
+      <DependentUpon>201609152254150_modify fk on users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609152259273_added fk back in.resx">
+      <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -422,5 +422,8 @@ C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addressnullable.resources
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.changedaddressnullable.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csprojResolveAssemblyReference.cache
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.recreateddb.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initial.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.userstablefkadded.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.modifyfkonusers.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addedfkbackin.resources

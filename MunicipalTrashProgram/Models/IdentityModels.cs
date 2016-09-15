@@ -18,8 +18,8 @@ namespace MunicipalTrashProgram.Models
         public string LastName { get; set; }
         public UserInfo userInfo { get; set; }
         public Worker worker { get; set; }
-        //[ForeignKey("Address")]
-        //public int? Address_id { get; set; }
+        [ForeignKey("Address")]
+        public int? Address_id { get; set; }
         public virtual Address Address { get; set; }
 
 

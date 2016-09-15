@@ -54,16 +54,21 @@ namespace MunicipalTrashProgram.Controllers
 
             if (ModelState.IsValid)
             {
-                ////DbSet<Address> addresss = db.addresses;
                 db.addresses.Add(address);
-                ////user.address.Address_id = address.Address_id;
                 db.SaveChanges();
-                //myUser.Address = address;
-                //db.SaveChanges();
-                myUser.Address = address;//.Add(address);
-                db.SaveChanges();
-                myUser.Address.Address_id = address.Address_id;
-                db.SaveChanges();
+
+                using (var con = new ApplicationDbContext())
+                {
+
+                    myUser = con.Users.Find(myUser.Id);
+                    myUser.Address = address;
+                    myUser.Address_id = address.Address_id;
+
+                    con.Users.Attach(myUser);
+                    var entry = con.Entry(myUser);
+                    entry.Property(e => e.Address_id).IsModified = true;
+                    con.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
             }
 
