@@ -153,7 +153,7 @@ namespace MunicipalTrashProgram.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = (model.FirstName + " " + model.LastName), Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+                var user = new ApplicationUser { UserName = (model.FirstName + " " + model.LastName), Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, DateTime = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
                 if (result.Succeeded)
