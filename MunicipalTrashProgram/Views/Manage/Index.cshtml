@@ -10,81 +10,55 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-       @(Model.Profile ?? "None") [
-        @if (Model.currentUser.Address.Address_id != null)
-        {//user here
-        <dt>Your Address:</dt>
-        <dd>
-            <tr>
-                <td>
-                    @Model.currentUser.Address.HouseNumber;
-                </td>
-                <td>
-                    @Model.currentUser.Address.Street;
-                </td>
-                <td>
-                    @Model.currentUser.Address.City;
-                </td>
-                <td>
-                    @Model.currentUser.Address.State;
-                </td>
-                <td>
-                    @Model.currentUser.Address.ZipCode;
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Address.Address_id }) 
-                </td>
-            </tr>
-            </dd>
-        }else{
+       
+@if (Model.currentUser.Address_id != null)
+{//user here
+    <dt>Your Address:</dt>
+    <dd>
+        <tr>
+            <td>
+                <text>House Number:</text>
+                @Model.currentUser.Address.HouseNumber
+            </td>
+            <td>
+                <text>Street:</text>
+                @Model.currentUser.Address.Street
+            </td>
+            <td>
+                <text>City:</text>
+                @Model.currentUser.Address.City
+            </td>
+            <td>
+                <text>State:</text>
+                @Model.currentUser.Address.State
+            </td>
+            <td>
+                <text>Zipcode:</text>
+                @Model.currentUser.Address.ZipCode
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Address.Address_id })
+            </td>
+        </tr>
+    </dd>
+}
+else {
         <dt>Your Route's Zip Code:</dt>
         <dd>
             <tr>
                 <td>
-                    @if (Model.currentUser.worker != null)
-                    {
-                        @Model.currentUser.worker.WorkingZipCode;
-                    }
+                        @Model.currentUser.Worker.WorkingZipCode;
                 </td>
                 <td>
-@if (Model.currentUser.worker != null)
-{
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.worker.Worker_id }) }
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Worker.Worker_id })
                 </td>
             </tr>
         </dd>
         }
-        ]
-        @*<table class="table">
-                @foreach (var item in Model.currentUser.address)
-                {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HouseNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Street)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.State)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ZipCode)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Address_id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Address_id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Address_id })
-                    </td>
-                </tr>
-                }
-            </table>*@
+        
         <dt>Your Pickup Day:</dt>
         <dd>
-            @Html.DisplayFor(modelItem => Model.currentUser.userInfo.PickupDay)
+            @Html.DisplayFor(modelItem => Model.currentUser.UserInfo.PickupDay)
 </dd>
 <dt>Change Pickup Day:</dt>
 <dd>
@@ -121,7 +95,7 @@
             Value = "Saturday"
         });
     }*@
-    @*@Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*@*
+    @Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*
 
 </dd>
 

@@ -221,6 +221,14 @@
     <Compile Include="Migrations\201609152259273_added fk back in.Designer.cs">
       <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609160151280_add FK worker to users.cs" />
+    <Compile Include="Migrations\201609160151280_add FK worker to users.Designer.cs">
+      <DependentUpon>201609160151280_add FK worker to users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609161254059_add fk for userinfo on users.cs" />
+    <Compile Include="Migrations\201609161254059_add fk for userinfo on users.Designer.cs">
+      <DependentUpon>201609161254059_add fk for userinfo on users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -330,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609152259273_added fk back in.resx">
       <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609160151280_add FK worker to users.resx">
+      <DependentUpon>201609160151280_add FK worker to users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609161254059_add fk for userinfo on users.resx">
+      <DependentUpon>201609161254059_add fk for userinfo on users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

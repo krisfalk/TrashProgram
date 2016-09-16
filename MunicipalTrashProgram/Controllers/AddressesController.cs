@@ -69,7 +69,8 @@ namespace MunicipalTrashProgram.Controllers
                     entry.Property(e => e.Address_id).IsModified = true;
                     con.SaveChanges();
                 }
-                return RedirectToAction("Index", "Home");
+                
+                return RedirectToAction("Create", "UserInfoes");
             }
 
             return View(address);

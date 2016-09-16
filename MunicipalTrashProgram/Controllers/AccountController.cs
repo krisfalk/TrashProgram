@@ -165,6 +165,8 @@ namespace MunicipalTrashProgram.Controllers
                         {
                             return RedirectToAction("Create", "Workers");
                         }
+                        else
+                            return View(model);
                     }
                     else
                     {

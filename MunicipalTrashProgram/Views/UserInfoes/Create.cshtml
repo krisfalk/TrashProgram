@@ -18,35 +18,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PickupDay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PickupDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.PickupDay, new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PickupDay, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MonthlyBill, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MonthlyBill, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MonthlyBill, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.YearlyBill, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.YearlyBill, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.YearlyBill, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TotalBill, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalBill, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TotalBill, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        @*@Html.DropDownList("PickaDay", new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")*@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

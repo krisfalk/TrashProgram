@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MunicipalTrashProgram.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace MunicipalTrashProgram.Controllers
 {
@@ -48,14 +50,54 @@ namespace MunicipalTrashProgram.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Worker_id,WorkingZipCode")] Worker worker)
         {
+            ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
             if (ModelState.IsValid)
             {
                 db.workers.Add(worker);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                using (var con = new ApplicationDbContext())
+                {
+
+                    myUser = con.Users.Find(myUser.Id);
+                    //myUser.Address = address;
+                    myUser.Worker_id = worker.Worker_id;
+
+                    con.Users.Attach(myUser);
+                    var entry = con.Entry(myUser);
+                    entry.Property(e => e.Worker_id).IsModified = true;
+                    con.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home");
             }
 
             return View(worker);
+        }
+        public ActionResult ViewAddresses()
+        {
+            return View();
+        }
+
+        // POST: Workers/View
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ViewAddresses(Address address)
+        {
+            ApplicationUser currentWorker = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            List<ApplicationUser> matchingZip = new List<ApplicationUser>();
+            foreach (var user in db.Users)
+            {
+                var entry = db.Entry(user);
+                if (entry.Property(r => r.Address.Address_id).CurrentValue != null)
+                {
+
+                    if (currentWorker.Worker.WorkingZipCode == entry.Property(x => x.Address.ZipCode).CurrentValue)
+                    {
+                        matchingZip.Add(user);
+                    }
+                }
+            }
+            return View(matchingZip);
         }
 
         // GET: Workers/Edit/5

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MunicipalTrashProgram.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace MunicipalTrashProgram.Controllers
 {
@@ -46,13 +48,35 @@ namespace MunicipalTrashProgram.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserInfo_id,PickupDay,MonthlyBill,YearlyBill,TotalBill")] UserInfo userInfo)
+        public ActionResult Create([Bind(Include = "PickupDay")] UserInfo userInfo)
         {
+            ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
             if (ModelState.IsValid)
             {
                 db.usersInfo.Add(userInfo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
+                userInfo.MonthlyBill = 0;
+                userInfo.YearlyBill = 0;
+                userInfo.TotalBill = 0;
+                db.SaveChanges();
+
+                using (var con = new ApplicationDbContext())
+                {
+
+                    myUser = con.Users.Find(myUser.Id);
+                    //myUser.Address = address;
+                    myUser.UserInfo_id = userInfo.UserInfo_id;
+
+                    con.Users.Attach(myUser);
+                    var entry = con.Entry(myUser);
+                    entry.Property(e => e.UserInfo_id).IsModified = true;
+                    con.SaveChanges();
+                }
+
+
+                return RedirectToAction("Index", "Home");
             }
 
             return View(userInfo);
