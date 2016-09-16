@@ -18,6 +18,7 @@ namespace MunicipalTrashProgram.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private string employeeCode = "0000";
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -173,7 +174,9 @@ namespace MunicipalTrashProgram.Controllers
                         //int x = 0;
                         //Int32.TryParse(user.address.Address_id, out x);
                         //user.Address.Address_id = user.Id;
-                        user.Address = new Address();
+                        //user.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                        //db.SaveChanges();
+                        //user.Address = new Address();
                         return RedirectToAction("Create", "Addresses");
                     }
                 }
