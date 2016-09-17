@@ -140,7 +140,7 @@ namespace MunicipalTrashProgram.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupDay")] UserInfo userInfo)
+        public ActionResult Create([Bind(Include = "PickupDay")] UserInfo userInfo, ApplicationUser user)
         {
             ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
@@ -158,7 +158,6 @@ namespace MunicipalTrashProgram.Controllers
                 {
 
                     myUser = con.Users.Find(myUser.Id);
-                    //myUser.Address = address;
                     myUser.UserInfo_id = userInfo.UserInfo_id;
 
                     con.Users.Attach(myUser);
@@ -166,8 +165,17 @@ namespace MunicipalTrashProgram.Controllers
                     entry.Property(e => e.UserInfo_id).IsModified = true;
                     con.SaveChanges();
                 }
+                using (var con = new ApplicationDbContext())
+                {
+                    myUser = con.Users.Find(myUser.Id);
+                    myUser.PickupDay = userInfo.PickupDay;
 
+                    con.Users.Attach(myUser);
+                    var entry = con.Entry(myUser);
+                    entry.Property(e => e.PickupDay).IsModified = true;
+                    con.SaveChanges();
 
+                }
                 return RedirectToAction("Index", "Home");
             }
 

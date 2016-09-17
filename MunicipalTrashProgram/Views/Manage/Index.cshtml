@@ -17,29 +17,57 @@
     <dd>
         <tr>
             <td>
-                <text>House Number:</text>
+                <text><strong>House Number:</strong></text>
                 @Model.currentUser.Address.HouseNumber
             </td>
             <td>
-                <text>Street:</text>
+                <text> - <strong>Street:</strong></text>
                 @Model.currentUser.Address.Street
             </td>
             <td>
-                <text>City:</text>
+                <text> - <strong>City:</strong></text>
                 @Model.currentUser.Address.City
             </td>
             <td>
-                <text>State:</text>
+                <text> - <strong>State:</strong></text>
                 @Model.currentUser.Address.State
             </td>
             <td>
-                <text>Zipcode:</text>
+                <text> - <strong>Zipcode:</strong></text>
                 @Model.currentUser.Address.ZipCode
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Address.Address_id })
+                |@Html.ActionLink("Edit", "Edit", "Addresses", new { id = Model.currentUser.Address.Address_id }, null)|
             </td>
         </tr>
+        <dt>Your Pickup Day:</dt>
+        <dd>
+            <tr>
+                <td>
+                    @Model.currentUser.UserInfo.PickupDay
+                </td>
+                <td>
+                    |@Html.ActionLink("Edit", "Edit", "UserInfoes", new { id = Model.currentUser.UserInfo.UserInfo_id }, null)|
+                </td>
+            </tr>
+        </dd>
+        <dt>Your Bill:</dt>
+        <dd>
+            <tr>
+                <td>
+                    <text><strong>Month to date:</strong></text>
+                    $@Model.currentUser.UserInfo.MonthlyBill
+                </td>
+                <td>
+                    <text> - <strong>Year to date:</strong></text>
+                    $@Model.currentUser.UserInfo.YearlyBill
+                </td>
+                <td>
+                    <text> - <strong>Total to date:</strong></text>
+                    $@Model.currentUser.UserInfo.TotalBill
+                </td>
+            </tr>
+        </dd>
     </dd>
 }
 else {
@@ -47,62 +75,27 @@ else {
         <dd>
             <tr>
                 <td>
-                        @Model.currentUser.Worker.WorkingZipCode;
+                    @Model.currentUser.Worker.WorkingZipCode
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.currentUser.Worker.Worker_id })
+                    |@Html.ActionLink("Edit", "Edit", "Workers", new { id = Model.currentUser.Worker.Worker_id }, null)|
+                </td>
+            </tr>
+        </dd>
+        <dt>Work Area:</dt>
+        <dd>
+            <tr>
+                <td>
+                    @Html.ActionLink("Show today's Pickups","Index", "Workers", new { id = Model.currentUser.Worker.Worker_id }, null)
                 </td>
             </tr>
         </dd>
         }
         
-        <dt>Your Pickup Day:</dt>
-        <dd>
-            @Html.DisplayFor(modelItem => Model.currentUser.UserInfo.PickupDay)
-</dd>
-<dt>Change Pickup Day:</dt>
-<dd>
-    @*@{
-        List<SelectListItem> listItems = new List<SelectListItem>();
-        listItems.Add(new SelectListItem
-        {
-            Text = "Monday",
-            Value = "Monday"
-        });
-        listItems.Add(new SelectListItem
-        {
-            Text = "Tuesday",
-            Value = "Tuesday"
-        });
-        listItems.Add(new SelectListItem
-        {
-            Text = "Wednesday",
-            Value = "Wednesday"
-        });
-        listItems.Add(new SelectListItem
-        {
-            Text = "Thursday",
-            Value = "Thursday"
-        });
-        listItems.Add(new SelectListItem
-        {
-            Text = "Friday",
-            Value = "Friday"
-        });
-        listItems.Add(new SelectListItem
-        {
-            Text = "Saturday",
-            Value = "Saturday"
-        });
-    }*@
-    @Html.DropDownList("PickaDay",new SelectList(new[] { "Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday" }), "Select to change day")        @*new { @class = "form-control" })*
-
-</dd>
 
 
 <dt>Password:</dt>
 <dd>
-    [
     @if (Model.HasPassword)
     {
         @Html.ActionLink("Change your password", "ChangePassword")
@@ -111,7 +104,6 @@ else {
     {
         @Html.ActionLink("Create", "SetPassword")
     }
-    ]
 </dd>
 @*<dt>External Logins:</dt>
     <dd>

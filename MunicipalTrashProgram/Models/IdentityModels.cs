@@ -12,15 +12,17 @@ namespace MunicipalTrashProgram.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string PickupDay { get; set; }
         public DateTime DateTime { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int Zip { get; set; }
         [ForeignKey("UserInfo")]
         public int? UserInfo_id { get; set; }
-        public UserInfo UserInfo { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
         [ForeignKey("Worker")]
         public int? Worker_id { get; set; }
-        public Worker Worker { get; set; }
+        public virtual Worker Worker { get; set; }
         [ForeignKey("Address")]
         public int? Address_id { get; set; }
         public virtual Address Address { get; set; }

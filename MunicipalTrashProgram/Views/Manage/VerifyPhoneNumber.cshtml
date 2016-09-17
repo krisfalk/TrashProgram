@@ -5,27 +5,41 @@
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.Hidden("phoneNumber", @Model.PhoneNumber)
-    <h4>Enter verification code</h4>
-    <h5>@ViewBag.Status</h5>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+using (Html.BeginForm())
+           {
+<div class="row">
+    <div class="col-xs-12 col-md-4 center-block">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Vacation Range</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.StartDate, "Start/End Date")
+                    @Html.TextBoxFor(m => m.StartDate)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.EndDate, "End Date")
+                    @Html.TextBoxFor(m => m.EndDate)
+                </div>*@
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Submit" />
-        </div>
-    </div>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</div>
+           }
+@section scripts
+   {
+    <script type="text/javascript">
+           $(document).ready(function () {
+               $('input[name="StartDate"]').daterangepicker(
+                   { singleDatePicker: true, }
+                   );
+           });
+    </script>
+    <script type="text/javascript">
+           $(document).ready(function () {
+               $('input[name="EndDate"]').daterangepicker(
+                   { singleDatePicker: true, }
+                   );
+           });
+    </script>

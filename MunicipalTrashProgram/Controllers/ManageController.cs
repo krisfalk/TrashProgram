@@ -17,7 +17,7 @@ namespace MunicipalTrashProgram.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationDbContext db;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -67,8 +67,10 @@ namespace MunicipalTrashProgram.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-            var userId = User.Identity.GetUserId();
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            var userId = User.Identity.GetUserId();
+            user.UserInfo = db.usersInfo.Where(x => x.UserInfo_id == user.UserInfo_id).SingleOrDefault();
+            user.Worker = db.workers.Where(y => y.Worker_id == user.Worker_id).SingleOrDefault();
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -105,45 +107,7 @@ namespace MunicipalTrashProgram.Controllers
             }
             return RedirectToAction("ManageLogins", new { Message = message });
         }
-
-        //
-        // GET: /Manage/PickUpDay
-        public ActionResult PickUpDay(int? value)
-        {
-            //return RedirectToAction("Index", "Addresses");
-            List<SelectListItem> item = new List<SelectListItem>();
-            SelectListItem day1 = new SelectListItem() { Text = "Monday", Value = "1" };
-            SelectListItem day2 = new SelectListItem() { Text = "Tuesday", Value = "2" };
-            SelectListItem day3 = new SelectListItem() { Text = "Wednesday", Value = "3" };
-            SelectListItem day4 = new SelectListItem() { Text = "Thursday", Value = "4" };
-            SelectListItem day5 = new SelectListItem() { Text = "Friday", Value = "5" };
-            SelectListItem day6 = new SelectListItem() { Text = "Saturday", Value = "6" };
-
-            item.Add(day1);
-            item.Add(day2);
-            item.Add(day3);
-            item.Add(day4);
-            item.Add(day5);
-            item.Add(day6);
-
-            if(value != null)
-            {
-                item.Where(i => i.Value == value.ToString()).First().Selected = true;
-            }
-            
-            ViewBag.PickaDay = item;
-            return View(item);
-        }
-
-        //
-        // POST: /Manage/AddProfile
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> PickUpDay(int? value)
-        //{
-        //    return View();
-        //}
-        //
+        
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {

@@ -171,12 +171,6 @@ namespace MunicipalTrashProgram.Controllers
                     }
                     else
                     {
-                        //int x = 0;
-                        //Int32.TryParse(user.address.Address_id, out x);
-                        //user.Address.Address_id = user.Id;
-                        //user.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-                        //db.SaveChanges();
-                        //user.Address = new Address();
                         return RedirectToAction("Create", "Addresses");
                     }
                 }

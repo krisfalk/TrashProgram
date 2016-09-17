@@ -69,7 +69,17 @@ namespace MunicipalTrashProgram.Controllers
                     entry.Property(e => e.Address_id).IsModified = true;
                     con.SaveChanges();
                 }
-                
+                using(var con = new ApplicationDbContext())
+                {
+                    myUser = con.Users.Find(myUser.Id);
+                    myUser.Zip = address.ZipCode;
+
+                    con.Users.Attach(myUser);
+                    var entry = con.Entry(myUser);
+                    entry.Property(e => e.Zip).IsModified = true;
+                    con.SaveChanges();
+                    
+                }
                 return RedirectToAction("Create", "UserInfoes");
             }
 

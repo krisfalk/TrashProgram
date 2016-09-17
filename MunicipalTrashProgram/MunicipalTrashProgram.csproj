@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GoogleMaps.LocationServices, Version=0.1.5926.26040, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.0.9.8.6\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -205,39 +209,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609151945413_initial.cs" />
-    <Compile Include="Migrations\201609151945413_initial.Designer.cs">
-      <DependentUpon>201609151945413_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609151957050_users table fk added.cs" />
-    <Compile Include="Migrations\201609151957050_users table fk added.Designer.cs">
-      <DependentUpon>201609151957050_users table fk added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609152254150_modify fk on users.cs" />
-    <Compile Include="Migrations\201609152254150_modify fk on users.Designer.cs">
-      <DependentUpon>201609152254150_modify fk on users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609152259273_added fk back in.cs" />
-    <Compile Include="Migrations\201609152259273_added fk back in.Designer.cs">
-      <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609160151280_add FK worker to users.cs" />
-    <Compile Include="Migrations\201609160151280_add FK worker to users.Designer.cs">
-      <DependentUpon>201609160151280_add FK worker to users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609161254059_add fk for userinfo on users.cs" />
-    <Compile Include="Migrations\201609161254059_add fk for userinfo on users.Designer.cs">
-      <DependentUpon>201609161254059_add fk for userinfo on users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609161522231_update userinfo.cs" />
-    <Compile Include="Migrations\201609161522231_update userinfo.Designer.cs">
-      <DependentUpon>201609161522231_update userinfo.cs</DependentUpon>
+    <Compile Include="Migrations\201609172154515_initial.cs" />
+    <Compile Include="Migrations\201609172154515_initial.Designer.cs">
+      <DependentUpon>201609172154515_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProgramAddress.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,10 +227,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\daterangepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="GoogleMaps.LocationServices.readme.txt" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -258,6 +241,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -266,6 +250,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -309,7 +294,7 @@
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
     <Content Include="Views\Workers\Create.cshtml" />
-    <Content Include="Views\Workers\Delete.cshtml" />
+    <Content Include="Views\Workers\map.cshtml" />
     <Content Include="Views\Workers\Details.cshtml" />
     <Content Include="Views\Workers\Edit.cshtml" />
     <Content Include="Views\Workers\Index.cshtml" />
@@ -331,26 +316,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609151945413_initial.resx">
-      <DependentUpon>201609151945413_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609151957050_users table fk added.resx">
-      <DependentUpon>201609151957050_users table fk added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609152254150_modify fk on users.resx">
-      <DependentUpon>201609152254150_modify fk on users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609152259273_added fk back in.resx">
-      <DependentUpon>201609152259273_added fk back in.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609160151280_add FK worker to users.resx">
-      <DependentUpon>201609160151280_add FK worker to users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609161254059_add fk for userinfo on users.resx">
-      <DependentUpon>201609161254059_add fk for userinfo on users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609161522231_update userinfo.resx">
-      <DependentUpon>201609161522231_update userinfo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609172154515_initial.resx">
+      <DependentUpon>201609172154515_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

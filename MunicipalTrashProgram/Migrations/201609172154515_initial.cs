@@ -48,8 +48,14 @@ namespace MunicipalTrashProgram.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        PickupDay = c.String(),
+                        DateTime = c.DateTime(nullable: false),
                         FirstName = c.String(),
                         LastName = c.String(),
+                        Zip = c.Int(nullable: false),
+                        UserInfo_id = c.Int(),
+                        Worker_id = c.Int(),
+                        Address_id = c.Int(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -61,18 +67,15 @@ namespace MunicipalTrashProgram.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        Address_Address_id = c.Int(),
-                        userInfo_UserInfo_id = c.Int(),
-                        worker_Worker_id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Addresses", t => t.Address_Address_id)
-                .ForeignKey("dbo.UserInfoes", t => t.userInfo_UserInfo_id)
-                .ForeignKey("dbo.Workers", t => t.worker_Worker_id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.Address_Address_id)
-                .Index(t => t.userInfo_UserInfo_id)
-                .Index(t => t.worker_Worker_id);
+                .ForeignKey("dbo.Addresses", t => t.Address_id)
+                .ForeignKey("dbo.UserInfoes", t => t.UserInfo_id)
+                .ForeignKey("dbo.Workers", t => t.Worker_id)
+                .Index(t => t.UserInfo_id)
+                .Index(t => t.Worker_id)
+                .Index(t => t.Address_id)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -124,19 +127,19 @@ namespace MunicipalTrashProgram.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUsers", "worker_Worker_id", "dbo.Workers");
-            DropForeignKey("dbo.AspNetUsers", "userInfo_UserInfo_id", "dbo.UserInfoes");
+            DropForeignKey("dbo.AspNetUsers", "Worker_id", "dbo.Workers");
+            DropForeignKey("dbo.AspNetUsers", "UserInfo_id", "dbo.UserInfoes");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUsers", "Address_Address_id", "dbo.Addresses");
+            DropForeignKey("dbo.AspNetUsers", "Address_id", "dbo.Addresses");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", new[] { "worker_Worker_id" });
-            DropIndex("dbo.AspNetUsers", new[] { "userInfo_UserInfo_id" });
-            DropIndex("dbo.AspNetUsers", new[] { "Address_Address_id" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUsers", new[] { "Address_id" });
+            DropIndex("dbo.AspNetUsers", new[] { "Worker_id" });
+            DropIndex("dbo.AspNetUsers", new[] { "UserInfo_id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");

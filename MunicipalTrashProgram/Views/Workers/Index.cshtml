@@ -1,33 +1,89 @@
-﻿@model IEnumerable<MunicipalTrashProgram.Models.Worker>
+﻿@model MunicipalTrashProgram.Models.IndexViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>List of addresses in your route:</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.WorkingZipCode)
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+    <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyD3KoWWl0oYiaKZJBpRBR2lg8_LNH5FuNw"
+    type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+        function load() {
+            if (GBrowserIsCompatible()) {
+                var map = new GMap2(document.getElementById("map"));
+                map.addControl(new GSmallMapControl());
+                map.addControl(new GMapTypeControl());
+                map.setCenter(new GLatLng(43.137174, -88.092327), 9);
+                mapTypeId: google.maps.MapTypeId.ROADMAP;
+            
+                
+        //GDownloadUrl("/data.xml", function(data, responseCode) {
+        //    var xml = GXml.parse(data);
+        //    var markers = xml.documentElement.getElementsByTagName("marker");
+        //    for (var i = 0; i < markers.length; i++) {
+        //        var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
+        //                    parseFloat(markers[i].getAttribute("lng")));
+        //        map.addOverlay(new GMarker(point));
+                
+    }
+    }
+
+
+    //]]>
+    </script>
+    </head>
+<BODY onload="load()" onunload="GUnload()">
+    <div id="map" style="width: 100%; height: 420px"></div>
+</BODY></html>
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                <text>Home Number:</text>
         </th>
-        <th></th>
-    </tr>
+            <th>
+                <text>Street:</text>
+            </th>
+            <th>
+                <text>City:</text>
+            </th>
+            <th>
+                <text>State:</text>
+            </th>
+            <th>
+                <text>Zip Code:</text>
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WorkingZipCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Worker_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Worker_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Worker_id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model.myUsers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.HouseNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.ZipCode)
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>

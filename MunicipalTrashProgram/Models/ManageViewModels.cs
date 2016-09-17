@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System;
 
 namespace MunicipalTrashProgram.Models
 {
@@ -15,6 +16,23 @@ namespace MunicipalTrashProgram.Models
         public bool BrowserRemembered { get; set; }
         public string Profile { get; set; }
         public ApplicationUser currentUser { get; set; }
+        public UserInfo userinfo { get; set; }
+        public List<ApplicationUser> myUsers { get; set; }
+        public List<ProgramAddress> programmed { get; set; }
+        public string JsonLatLng { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public GoogleMapsDrops MyDrops { get; set; }
+    }
+
+    public class GoogleMapsDrops
+    {
+        public IEnumerable<ProgramAddress> Drops { get; private set; }
+
+        public GoogleMapsDrops(IEnumerable<ProgramAddress> drops)
+        {
+            Drops = drops;
+        }
     }
 
     public class ManageLoginsViewModel

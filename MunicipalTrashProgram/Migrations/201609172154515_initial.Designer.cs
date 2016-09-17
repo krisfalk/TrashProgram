@@ -7,13 +7,13 @@ namespace MunicipalTrashProgram.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedfkbackin : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedfkbackin));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609152259273_added fk back in"; }
+            get { return "201609172154515_initial"; }
         }
         
         string IMigrationMetadata.Source
