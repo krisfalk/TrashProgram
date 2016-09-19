@@ -340,8 +340,6 @@ C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addressnullable.resources
 C:\Users\Nathaniel\Desktop\DCC Lectures\C# projects\Week 6\MunicipalTrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.changedaddressnullable.resources
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csprojResolveAssemblyReference.cache
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initial.resources
-C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\ApplicationInsights.config
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\roslyn\csc.exe
 C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -427,3 +425,5 @@ C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\bin\GoogleMaps.LocationServices.dll
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initial.resources
 C:\Users\Nathaniel\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.addedstartendandvacationtouserinfo.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.Migrations.initial.resources
+C:\Users\Kristofer\Documents\GitHub\TrashProgram\MunicipalTrashProgram\obj\Debug\MunicipalTrashProgram.csproj.GenerateResource.Cache

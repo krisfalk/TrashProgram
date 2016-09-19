@@ -13,7 +13,7 @@ namespace MunicipalTrashProgram.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201609172154515_initial"; }
+            get { return "201609191505034_initial"; }
         }
         
         string IMigrationMetadata.Source

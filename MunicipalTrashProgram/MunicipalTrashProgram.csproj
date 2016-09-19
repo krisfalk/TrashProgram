@@ -209,13 +209,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609172154515_initial.cs" />
-    <Compile Include="Migrations\201609172154515_initial.Designer.cs">
-      <DependentUpon>201609172154515_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609191332400_added start end and vacation to userinfo.cs" />
-    <Compile Include="Migrations\201609191332400_added start end and vacation to userinfo.Designer.cs">
-      <DependentUpon>201609191332400_added start end and vacation to userinfo.cs</DependentUpon>
+    <Compile Include="Migrations\201609191505034_initial.cs" />
+    <Compile Include="Migrations\201609191505034_initial.Designer.cs">
+      <DependentUpon>201609191505034_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -229,6 +225,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-spacelab.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\daterangepicker.css" />
@@ -298,7 +295,6 @@
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
     <Content Include="Views\Workers\Create.cshtml" />
-    <Content Include="Views\Workers\map.cshtml" />
     <Content Include="Views\Workers\Details.cshtml" />
     <Content Include="Views\Workers\Edit.cshtml" />
     <Content Include="Views\Workers\Index.cshtml" />
@@ -321,11 +317,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609172154515_initial.resx">
-      <DependentUpon>201609172154515_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609191332400_added start end and vacation to userinfo.resx">
-      <DependentUpon>201609191332400_added start end and vacation to userinfo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609191505034_initial.resx">
+      <DependentUpon>201609191505034_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

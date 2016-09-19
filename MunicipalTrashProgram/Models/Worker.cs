@@ -15,7 +15,6 @@ namespace MunicipalTrashProgram.Models
         [Key]
         public int? Worker_id { get; set; }
         public int WorkingZipCode { get; set; }
-
-        //public virtual ApplicationUser User { get; set; }
+        
     }
 }

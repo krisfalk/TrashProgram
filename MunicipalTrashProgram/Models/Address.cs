@@ -15,13 +15,10 @@ namespace MunicipalTrashProgram.Models
         }
         [Key]
         public int? Address_id { get; set; }
-        //public virtual ApplicationUser ApplicationUser { get; set; }
         public int HouseNumber { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
-
-        //public virtual ApplicationUser User { get; set; }
     }
 }

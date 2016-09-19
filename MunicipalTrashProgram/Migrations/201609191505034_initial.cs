@@ -111,6 +111,9 @@ namespace MunicipalTrashProgram.Migrations
                         MonthlyBill = c.Double(nullable: false),
                         YearlyBill = c.Double(nullable: false),
                         TotalBill = c.Double(nullable: false),
+                        StartDate = c.DateTime(),
+                        EndDate = c.DateTime(),
+                        VacationDays = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserInfo_id);
             

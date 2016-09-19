@@ -17,20 +17,37 @@
 <body>
     <div id="map"></div>
     <script>
-     function initMap() {
-       var mapDiv = document.getElementById('map');
-       var map = new google.maps.Map(mapDiv, {
-           center: {lat: 43.137174, lng: -88.092327},
-           zoom: 9
-       });
-@foreach (var item in Model.programmed) {
+        function initMap() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: {lat: 43.137174, lng: -88.092327},
+                zoom: 9
+            });
+            @foreach (var item in Model.programmed) {
        <text>
-           var marker = new google.maps.Marker({
-           position: { lat: @item.lat , lng: @item.lng},
-           map: map,
-           title: 'Hello World!'
-                       });</text> }
-}
+            var marker = new google.maps.Marker({
+                position: { lat: @item.lat , lng: @item.lng},
+                map: map,
+                title: 'Hello World!'
+            });</text> }
+            @*var lineCoordinates = [
+                @foreach(var item in Model.programmed)
+             {
+                <text> 
+                new google.maps.LatLng(@item.lat, @item.lng)
+                </text>
+             }
+            ];
+            var line = new google.maps.Polyline({
+                path: lineCoordinates,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });*@
+
+            line.setMap(map);
+        }
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3KoWWl0oYiaKZJBpRBR2lg8_LNH5FuNw&callback=initMap">

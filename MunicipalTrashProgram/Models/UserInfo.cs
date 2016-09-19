@@ -21,6 +21,5 @@ namespace MunicipalTrashProgram.Models
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int VacationDays { get; set; }
-        //public virtual ApplicationUser User { get; set; }
     }
 }

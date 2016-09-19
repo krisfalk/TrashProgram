@@ -56,7 +56,6 @@ namespace MunicipalTrashProgram.Controllers
             {
                 double encodedXml = latLng[i].lat;
                 double encodedXml2 = latLng[i].lng;
-                    //item.Replace("&quot;", " ");
                 writer.WriteStartElement("marker");
                 writer.WriteAttributeString("lat", encodedXml.ToString());
                 writer.WriteAttributeString("lng", encodedXml2.ToString());
@@ -77,34 +76,7 @@ namespace MunicipalTrashProgram.Controllers
                 
             };
             return View(model);
-            //return View(new GoogleMapsDrops(latLng));
-            //return View(db.workers.ToList());
         }
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    List<String> oGeocodeList = new List<String>
-        //    {
-        //    " '40.756012, -73.972614' ",
-        //    " '40.456012, -73.796087' ",
-        //    " '40.456012, -73.456807' "
-        //    };
-
-        //    var geocodevalues = string.Join(",", oGeocodeList.ToArray());
-
-        //    List<String> oMessageList = new List<String>
-        //    {
-        //    " '<span class=formatText >Google Map 3 Awesome !!!</span>' ",
-        //    " '<span class=formatText>Made it very simple</span>' ",
-        //    " '<span class=formatText>Google Rocks</span>' "
-        //    };
-
-        //    String message = string.Join(",", oMessageList.ToArray());
-
-        //    ClientScriptManager
-        //    ClientScript.RegisterArrayDeclaration("locationList", geocodevalues);
-
-        //    ClientScript.RegisterArrayDeclaration("message", message);
-        //}
         private ProgramAddress GetLatAndLng(ApplicationUser user)
         {
             user.UserInfo = db.usersInfo.Where(x => x.UserInfo_id == user.UserInfo_id).SingleOrDefault();
@@ -126,30 +98,6 @@ namespace MunicipalTrashProgram.Controllers
             
             return mapAddress;
         }
-        //private void BindGMap(List<ApplicationUser> usersWithMatchingZips)
-        //{
-        //    try
-        //    {
-        //        List<ProgramAddress> AddressList = new List<ProgramAddress>();
-        //        foreach (var users in usersWithMatchingZips)
-        //        {
-        //            string FullAddress = dr["Address"].ToString() + " " + dr["City"].ToString() + ", " + dr["Country"].ToString() + " " + dr["StateName"].ToString() + " " + dr["ZipCode"].ToString();
-        //            ProgramAddress MapAddress = new ProgramAddress();
-        //            MapAddress.description = FullAddress;
-        //            var locationService = new GoogleLocationService();
-        //            var point = locationService.GetLatLongFromAddress(FullAddress);
-        //            MapAddress.lat = point.Latitude;
-        //            MapAddress.lng = point.Longitude;
-        //            AddressList.Add(MapAddress);
-        //        }
-        //        //string jsonString = JsonSerializer<List<ProgramAddress>>(AddressList);
-        //        //ScriptManager.RegisterArrayDeclaration(Page, "markers", jsonString);
-        //        //ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString(), "GoogleMap();", true);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //    }
-        //}
 
         // GET: Workers/Details/5
         public ActionResult Details(int? id)

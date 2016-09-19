@@ -19,10 +19,6 @@ namespace MunicipalTrashProgram.Models
         public UserInfo userinfo { get; set; }
         public List<ApplicationUser> myUsers { get; set; }
         public List<ProgramAddress> programmed { get; set; }
-        public string JsonLatLng { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
-        public GoogleMapsDrops MyDrops { get; set; }
     }
 
     public class GoogleMapsDrops

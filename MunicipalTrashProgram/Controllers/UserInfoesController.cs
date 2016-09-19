@@ -26,37 +26,18 @@ namespace MunicipalTrashProgram.Controllers
             var firstOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var firstOfCurrentYear = new DateTime(DateTime.Now.Year, 1, 1);
             var currentDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            var currentDayOfWeek = new DayOfWeek();
+            var currentDayOfWeek = ConvertDay(myUser.UserInfo.PickupDay);
 
-            switch (myUser.UserInfo.PickupDay)
-            {
-                case "Monday":
-                    currentDayOfWeek = DayOfWeek.Monday;
-                    break;
-                case "Tuesday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Wednesday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Thursday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Friday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Saturday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                default:
-                    currentDayOfWeek = DayOfWeek.Monday;
-                    break;
-            }
+            int modDate = 0;
+            if (DateTime.Now < myUser.UserInfo.StartDate)
+                modDate = myUser.UserInfo.VacationDays - CountDays(currentDayOfWeek, (DateTime)myUser.UserInfo.StartDate, (DateTime)myUser.UserInfo.EndDate);
+            else if (DateTime.Now > myUser.UserInfo.StartDate && DateTime.Now < myUser.UserInfo.EndDate)
+                modDate = myUser.UserInfo.VacationDays - CountDays(currentDayOfWeek, (DateTime)myUser.UserInfo.StartDate, DateTime.Now);
+            else modDate = myUser.UserInfo.VacationDays;
 
-
-            myUser.UserInfo.MonthlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentMonth, currentDateTime), costPerPickup);
-            myUser.UserInfo.YearlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentYear, currentDateTime), costPerPickup);
-            myUser.UserInfo.TotalBill = doWork.ComputeBill(CountDays(currentDayOfWeek, myUser.DateTime, currentDateTime), costPerPickup);
+            myUser.UserInfo.MonthlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentMonth, currentDateTime) - modDate, costPerPickup);
+            myUser.UserInfo.YearlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentYear, currentDateTime) - modDate, costPerPickup);
+            myUser.UserInfo.TotalBill = doWork.ComputeBill(CountDays(currentDayOfWeek, myUser.DateTime, currentDateTime) - modDate, costPerPickup);
 
             return View(db.usersInfo.ToList());
         }
@@ -80,32 +61,7 @@ namespace MunicipalTrashProgram.Controllers
             var firstOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var firstOfCurrentYear = new DateTime(DateTime.Now.Year, 1, 1);
             var currentDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            var currentDayOfWeek = new DayOfWeek();
-
-            switch (myUser.UserInfo.PickupDay)
-            {
-                case "Monday":
-                    currentDayOfWeek = DayOfWeek.Monday;
-                    break;
-                case "Tuesday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Wednesday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Thursday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Friday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                case "Saturday":
-                    currentDayOfWeek = DayOfWeek.Tuesday;
-                    break;
-                default:
-                    currentDayOfWeek = DayOfWeek.Monday;
-                    break;
-            }
+            var currentDayOfWeek = ConvertDay(myUser.UserInfo.PickupDay);
 
             userInfo.MonthlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentMonth, currentDateTime), costPerPickup);
             userInfo.YearlyBill = doWork.ComputeBill(CountDays(currentDayOfWeek, firstOfCurrentYear, currentDateTime), costPerPickup);
@@ -251,39 +207,14 @@ namespace MunicipalTrashProgram.Controllers
             using (var con = new ApplicationDbContext())
             {
                 ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-                var currentDayOfWeek = new DayOfWeek();
-
-                switch (myUser.UserInfo.PickupDay)
-                {
-                    case "Monday":
-                        currentDayOfWeek = DayOfWeek.Monday;
-                        break;
-                    case "Tuesday":
-                        currentDayOfWeek = DayOfWeek.Tuesday;
-                        break;
-                    case "Wednesday":
-                        currentDayOfWeek = DayOfWeek.Tuesday;
-                        break;
-                    case "Thursday":
-                        currentDayOfWeek = DayOfWeek.Tuesday;
-                        break;
-                    case "Friday":
-                        currentDayOfWeek = DayOfWeek.Tuesday;
-                        break;
-                    case "Saturday":
-                        currentDayOfWeek = DayOfWeek.Tuesday;
-                        break;
-                    default:
-                        currentDayOfWeek = DayOfWeek.Monday;
-                        break;
-                }
+                var currentDayOfWeek = ConvertDay(myUser.UserInfo.PickupDay);
                 myUser = con.Users.Find(myUser.Id);
                 myUser.UserInfo.StartDate = userInfo.StartDate;
                 myUser.UserInfo.EndDate = userInfo.EndDate;
                 DateTime start;
                 DateTime end;
-                start = myUser.UserInfo.StartDate ?? DateTime.Now;
-                end = myUser.UserInfo.EndDate ?? DateTime.Now;
+                start = (DateTime)myUser.UserInfo.StartDate;
+                end = (DateTime)myUser.UserInfo.EndDate;
                 int num = CountDays(currentDayOfWeek, start, end);
                 //userInfo.VacationDays = num;
                 myUser.UserInfo.VacationDays = myUser.UserInfo.VacationDays + num;
@@ -293,6 +224,26 @@ namespace MunicipalTrashProgram.Controllers
                 con.SaveChanges();
             }
             return RedirectToAction("Index", "Home");
+        }
+        private DayOfWeek ConvertDay(string myDay)
+        {
+            switch (myDay)
+            {
+                case "Monday":
+                    return DayOfWeek.Monday;
+                case "Tuesday":
+                    return DayOfWeek.Tuesday;
+                case "Wednesday":
+                    return DayOfWeek.Tuesday;
+                case "Thursday":
+                    return DayOfWeek.Tuesday;
+                case "Friday":
+                    return DayOfWeek.Tuesday;
+                case "Saturday":
+                    return DayOfWeek.Tuesday;
+                default:
+                    return DayOfWeek.Monday;
+            }
         }
         protected override void Dispose(bool disposing)
         {
