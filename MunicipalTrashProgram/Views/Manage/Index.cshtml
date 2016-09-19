@@ -51,6 +51,27 @@
                 </td>
             </tr>
         </dd>
+        @if (Model.currentUser.UserInfo.StartDate != null && Model.currentUser.UserInfo.EndDate > (DateTime?)DateTime.Now)
+        {
+            <dt>Your Vacation Dates:</dt>
+            <dd>
+                <tr>
+                    <td>
+                        |@Model.currentUser.UserInfo.StartDate|
+                        to
+                        |@Model.currentUser.UserInfo.EndDate|
+                    </td>
+                </tr>
+            </dd>
+        }
+        <dt>Set Vacation Dates:</dt>
+        <dd>
+            <tr>
+                <td>
+                    |@Html.ActionLink("Set", "VacationPeriod", "UserInfoes")|
+                </td>
+            </tr>
+        </dd>
         <dt>Your Bill:</dt>
         <dd>
             <tr>

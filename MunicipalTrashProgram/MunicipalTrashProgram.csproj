@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201609172154515_initial.Designer.cs">
       <DependentUpon>201609172154515_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609191332400_added start end and vacation to userinfo.cs" />
+    <Compile Include="Migrations\201609191332400_added start end and vacation to userinfo.Designer.cs">
+      <DependentUpon>201609191332400_added start end and vacation to userinfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -303,6 +307,7 @@
     <Content Include="Views\UserInfoes\Details.cshtml" />
     <Content Include="Views\UserInfoes\Edit.cshtml" />
     <Content Include="Views\UserInfoes\Index.cshtml" />
+    <Content Include="Views\UserInfoes\VacationPeriod.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,6 +323,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609172154515_initial.resx">
       <DependentUpon>201609172154515_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609191332400_added start end and vacation to userinfo.resx">
+      <DependentUpon>201609191332400_added start end and vacation to userinfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

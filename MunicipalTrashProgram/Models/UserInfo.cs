@@ -18,7 +18,9 @@ namespace MunicipalTrashProgram.Models
         public double MonthlyBill { get; set; }
         public double YearlyBill { get; set; }
         public double TotalBill { get; set; }
-
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int VacationDays { get; set; }
         //public virtual ApplicationUser User { get; set; }
     }
 }

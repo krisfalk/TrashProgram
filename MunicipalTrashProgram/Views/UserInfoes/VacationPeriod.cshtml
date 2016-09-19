@@ -1,0 +1,59 @@
+﻿@model MunicipalTrashProgram.Models.UserInfo
+@{
+    ViewBag.Title = "VacationPeriod";
+}
+
+<h2>VacationPeriod</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-xs-12 col-md-4 center-block">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Vacation Range</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.StartDate, "Start Date")
+                        @Html.TextBoxFor(m => m.StartDate, new { @class = "StartDate" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EndDate, "End Date")
+                        @Html.TextBoxFor(m => m.EndDate, new { @class = "EndDate" })
+                    </div>
+                    <fieldset style="position: relative;">
+                        <div style="position: absolute; bottom: 0; right: 0;">
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts
+   {
+    <script type="text/javascript">
+           $(document).ready(function () {
+               $('input[name="StartDate"]').daterangepicker(
+                   {
+                       singleDatePicker: true,
+                       format: 'MM/DD/YYYY'
+                   }
+                   );
+           });
+
+    </script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('input[name="EndDate"]').daterangepicker({ singleDatePicker: true, format: 'MM/DD/YYYY' })
+            });
+    </script>
+}

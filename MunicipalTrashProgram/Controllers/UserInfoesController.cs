@@ -238,7 +238,62 @@ namespace MunicipalTrashProgram.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult VacationPeriod()
+        {
 
+            return View();
+        }
+        // POST: UserInfoes/VacationPeriod
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult VacationPeriod([Bind(Include = "StartDate, EndDate")] UserInfo userInfo, ApplicationUser user)
+        {
+            using (var con = new ApplicationDbContext())
+            {
+                ApplicationUser myUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+                var currentDayOfWeek = new DayOfWeek();
+
+                switch (myUser.UserInfo.PickupDay)
+                {
+                    case "Monday":
+                        currentDayOfWeek = DayOfWeek.Monday;
+                        break;
+                    case "Tuesday":
+                        currentDayOfWeek = DayOfWeek.Tuesday;
+                        break;
+                    case "Wednesday":
+                        currentDayOfWeek = DayOfWeek.Tuesday;
+                        break;
+                    case "Thursday":
+                        currentDayOfWeek = DayOfWeek.Tuesday;
+                        break;
+                    case "Friday":
+                        currentDayOfWeek = DayOfWeek.Tuesday;
+                        break;
+                    case "Saturday":
+                        currentDayOfWeek = DayOfWeek.Tuesday;
+                        break;
+                    default:
+                        currentDayOfWeek = DayOfWeek.Monday;
+                        break;
+                }
+                myUser = con.Users.Find(myUser.Id);
+                myUser.UserInfo.StartDate = userInfo.StartDate;
+                myUser.UserInfo.EndDate = userInfo.EndDate;
+                DateTime start;
+                DateTime end;
+                start = myUser.UserInfo.StartDate ?? DateTime.Now;
+                end = myUser.UserInfo.EndDate ?? DateTime.Now;
+                int num = CountDays(currentDayOfWeek, start, end);
+                //userInfo.VacationDays = num;
+                myUser.UserInfo.VacationDays = myUser.UserInfo.VacationDays + num;
+                con.Users.Attach(myUser);
+                var entry = con.Entry(myUser);
+                entry.Property(e => e.UserInfo_id).IsModified = true;
+                con.SaveChanges();
+            }
+            return RedirectToAction("Index", "Home");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
