@@ -96,7 +96,7 @@ namespace MunicipalTrashProgram.Controllers
             //xDoc.Save("C:/Users/Kristofer/Documents/GitHub/TrashProgram/data.xml");
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
-            XmlWriter writer = XmlWriter.Create("C:/Users/Kristofer/Documents/GitHub/TrashProgram/data.xml", settings);
+            XmlWriter writer = XmlWriter.Create("C:/Users/Kristofer/Documents/GitHub/TrashProgram/MunicipalTrashProgram/data.xml", settings);
             writer.WriteStartDocument();
             writer.WriteStartElement("markers");
             for (int i = 0; i < latLng.Count; i++)

@@ -22,20 +22,16 @@
                 map.addControl(new GMapTypeControl());
                 map.setCenter(new GLatLng(43.137174, -88.092327), 9);
                 mapTypeId: google.maps.MapTypeId.ROADMAP;
-            
-                
-        //GDownloadUrl("/data.xml", function(data, responseCode) {
-        //    var xml = GXml.parse(data);
-        //    var markers = xml.documentElement.getElementsByTagName("marker");
-        //    for (var i = 0; i < markers.length; i++) {
-        //        var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
-        //                    parseFloat(markers[i].getAttribute("lng")));
-        //        map.addOverlay(new GMarker(point));
-                
-    }
-    }
-
-
+            }
+        }
+                GDownloadUrl("C:/Users/Kristofer/Documents/GitHub/TrashProgram/MunicipalTrashProgram/data.xml", function(data, responseCode) {
+                    var xml = GXml.parse(data);
+                    var markers = xml.documentElement.getElementsByTagName("marker");
+                    for (var i = 0; i < markers.length; i++) {
+                        var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
+                                    parseFloat(markers[i].getAttribute("lng")));
+                        map.addOverlay(new GMarker(point));
+                    }});
     //]]>
     </script>
     </head>
