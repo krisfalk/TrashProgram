@@ -46,57 +46,10 @@ namespace MunicipalTrashProgram.Controllers
             {
                 latLng.Add(GetLatAndLng(matchingZip[i]));
             }
-
-            //XDocument latsAndLngs = XDocument.Load(Server.MapPath(@"~/App_Data/data.xml"));
-
-            //// To add new Element to XML file
-            //for (int i = 0; i < length; i++)
-            //{
-            //    latsAndLngs.Element("markers").Add(new XmlElement("lat", latLng[i].lat), new XmlElement("lng", latLng[i].lng));
-
-            //}
-
-            //latsAndLngs.Save(Server.MapPath(@"~/App_Data/data.xml"));
-            // string json = JsonConvert.SerializeObject(new
-            // {
-            //     operations = latLng
-            // });
-
-            // string jsonString = JsonConvert.SerializeObject(latLng, Newtonsoft.Json.Formatting.Indented);
-
-            // string strMyXml2 = "";
-            // for (int i = 0; i < latLng.Count; i++)
-            // {
-            //     double newlat = Convert.ToDouble(latLng[i].lat);
-            //     double newlng = Convert.ToDouble(latLng[i].lng);
-            //     //string xmlSample = "<root><item att1=\"value\" att2=\"value2\" /></root>";
-            //     strMyXml2 = strMyXml2 + "<marker lat=\"value1\" lng=\"value2\" />\r\n";
-            //     strMyXml2 = strMyXml2.Replace("value1", newlat);
-            //     strMyXml2 = strMyXml2.Replace("value2", newlng);
-
-            // }
-            // strMyXml2 = "<markers>\r\n" + strMyXml2 + "</markers>";
-
-            // //Book overview = new Book();
-            //// overview.title = "Serialization Overview";
-            // System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer();
-
-            // var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//data.xml";
-            // System.IO.FileStream file = System.IO.File.Create(path);
-
-            // writer.Serialize(file, strMyXml2);
-            // file.Close();
-
-
-            //XmlDocument xDoc = new XmlDocument();
-            ////XDocument xd = XDocument.Parse(strMyXml);
-            //xDoc.LoadXml(strMyXml2);
-            ////Here the xml is prepared and loaded in xml DOM.
-
-            //xDoc.Save("C:/Users/Kristofer/Documents/GitHub/TrashProgram/data.xml");
+            
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
-            XmlWriter writer = XmlWriter.Create("C:/Users/Kristofer/Documents/GitHub/TrashProgram/MunicipalTrashProgram/data.xml", settings);
+            XmlWriter writer = XmlWriter.Create("C:/Users/Kristofer/Documents/GitHub/data.xml", settings);
             writer.WriteStartDocument();
             writer.WriteStartElement("markers");
             for (int i = 0; i < latLng.Count; i++)
@@ -114,14 +67,14 @@ namespace MunicipalTrashProgram.Controllers
             writer.Flush();
             writer.Close();
 
+
+
             var model = new IndexViewModel
             {
-                
-               // MyDrops = new GoogleMapsDrops(latLng),
-                //programmed = latLng,
-                //JsonLatLng = jsonString,
+                programmed = latLng,
                 myUsers = matchingZip,
-                currentUser = currentWorker
+                currentUser = currentWorker,
+                
             };
             return View(model);
             //return View(new GoogleMapsDrops(latLng));
