@@ -6,38 +6,80 @@
 
 <h2>List of addresses in your route:</h2>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head id="Head1" runat="server">
-    <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyD3KoWWl0oYiaKZJBpRBR2lg8_LNH5FuNw"
-    type="text/javascript">
-    </script>
-    <script type="text/javascript">
-    //<![CDATA[
-
-        function load() {
-            if (GBrowserIsCompatible()) {
-                var map = new GMap2(document.getElementById("map"));
-                map.addControl(new GSmallMapControl());
-                map.addControl(new GMapTypeControl());
-                map.setCenter(new GLatLng(43.137174, -88.092327), 9);
-                mapTypeId: google.maps.MapTypeId.ROADMAP;
-            }
+<head>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
         }
-                GDownloadUrl("C:/Users/Kristofer/Documents/GitHub/TrashProgram/MunicipalTrashProgram/data.xml", function(data, responseCode) {
-                    var xml = GXml.parse(data);
-                    var markers = xml.documentElement.getElementsByTagName("marker");
-                    for (var i = 0; i < markers.length; i++) {
-                        var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
-                                    parseFloat(markers[i].getAttribute("lng")));
-                        map.addOverlay(new GMarker(point));
-                    }});
-    //]]>
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+     function initMap() {
+       var mapDiv = document.getElementById('map');
+       var map = new google.maps.Map(mapDiv, {
+           center: {lat: 43.137174, lng: -88.092327},
+           zoom: 9
+       });
+@foreach (var item in Model.programmed) {
+       <text>
+           var marker = new google.maps.Marker({
+           position: { lat: @item.lat , lng: @item.lng},
+           map: map,
+           title: 'Hello World!'
+                       });</text> }
+}
     </script>
-    </head>
-<BODY onload="load()" onunload="GUnload()">
-    <div id="map" style="width: 100%; height: 420px"></div>
-</BODY></html>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3KoWWl0oYiaKZJBpRBR2lg8_LNH5FuNw&callback=initMap">
+    </script>
+
+
+
+
+    @*<html xmlns="http://www.w3.org/1999/xhtml">
+        <head id="Head1" runat="server">
+            <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyD3KoWWl0oYiaKZJBpRBR2lg8_LNH5FuNw"
+                    type="text/javascript">
+            </script>
+            <script type="text/javascript">
+                //<![CDATA[
+
+                function load() {
+                    if (GBrowserIsCompatible()) {
+                        var map = new GMap2(document.getElementById("map"));
+                        map.addControl(new GSmallMapControl());
+                        map.addControl(new GMapTypeControl());
+                        map.setCenter(new GLatLng(43.137174, -88.092327), 9);
+                        mapTypeId: google.maps.MapTypeId.ROADMAP;
+                    }};
+                @foreach (var item in Model.programmed) {
+               <text>
+                   var marker = new google.maps.Marker({
+                   position: { lat: @item.lat , lng: @item.lng},
+                   map: map,
+                   title: 'Hello World!'
+                               });</text> }
+
+                //GDownloadUrl("C:/Users/Kristofer/Documents/GitHub/data.xml", function (data, responseCode) {
+                //    var xml = GXml.parse(data);
+                //    var markers = xml.documentElement.getElementsByTagName("marker");
+                //    for (var i = 0; i < markers.length; i++) {
+                //        var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
+                //                    parseFloat(markers[i].getAttribute("lng")));
+                //        map.addOverlay(new GMarker(point));
+                //    }
+                );
+
+                //]]>
+            </script>
+        </head>
+        <BODY onload="load()" onunload="GUnload()">
+            <div id="map" style="width: 100%; height: 420px"></div>
+        </BODY>
+        </html>*@
 
 
 
@@ -45,7 +87,7 @@
         <tr>
             <th>
                 <text>Home Number:</text>
-        </th>
+            </th>
             <th>
                 <text>Street:</text>
             </th>
