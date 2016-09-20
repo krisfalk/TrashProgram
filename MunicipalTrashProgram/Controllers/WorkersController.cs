@@ -94,6 +94,7 @@ namespace MunicipalTrashProgram.Controllers
             var point = locationService.GetLatLongFromAddress(fullAddress);
             mapAddress.lat = point.Latitude;
             mapAddress.lng = point.Longitude;
+            mapAddress.description = user.UserName + "\r\n" + houseNumber + " " + street + ",\r\n" + city + ", " + state + " " + zip;
 
             
             return mapAddress;

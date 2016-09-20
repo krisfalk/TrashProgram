@@ -26,10 +26,11 @@
             });
             @foreach (var item in Model.programmed) {
        <text>
+            @*var description = @item.description;*@
             var marker = new google.maps.Marker({
                 position: { lat: @item.lat , lng: @item.lng},
                 map: map,
-                title: 'Hello World!'
+                title: 'Hello'
             });</text> }
             var lineCoordinates = [];
             @foreach(var item in Model.programmed)
